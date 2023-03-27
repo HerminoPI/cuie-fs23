@@ -6,6 +6,7 @@
         body {
 
         }
+
         canvas {
             background-color: lightgray;
         }
@@ -23,23 +24,51 @@
 
 <script>
     const paint = canvas => {
-        const centerx   = canvas.width  / 2;
-        const centery   = canvas.height / 2;
-        const ctx       = canvas.getContext('2d');
+        const centerx = canvas.width / 2;
+        const centery = canvas.height / 2;
+        const ctx = canvas.getContext('2d');
 
         ctx.beginPath();
         ctx.moveTo(centerx, centery);
-        ctx.arc(centerx, centery, 300, 0, 5.4);
-        ctx.fillStyle = "blue";
+        ctx.arc(centerx, centery, 300, 0, 6.2);
+        ctx.fillStyle = "#0f403f";
         ctx.fill();
 
         ctx.beginPath();
         ctx.moveTo(centerx, centery);
-        ctx.arc(centerx, centery, 350, 0, 3.1);
-        ctx.strokeStyle = "red";
-        ctx.lineCap = "square";
+        ctx.arc(centerx, centery, 50, 0, 0);
+        ctx.fillStyle = "";
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.moveTo(centerx, centery);
+        ctx.rect(centerx - 50, centery - 50, 100, 100);
+        ctx.fillStyle = "#a11826";
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.moveTo(centerx, centery);
+        ctx.arc(centerx, centery, 30, 7, 2 * Math.PI);
+        ctx.strokeStyle = "#ffd700";
+        ctx.lineCap = "circle";
         ctx.lineWidth = 5;
         ctx.stroke();
+
+        ctx.beginPath();
+        ctx.moveTo(centerx, centery);
+        ctx.rect(centerx - 150, centery - 150, 100, 100);
+        ctx.fillStyle = "#a11826";
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.moveTo(centerx, centery);
+        ctx.rect(centerx + 50, centery + 50, 100, 100);
+        ctx.fillStyle = "#a11826";
+        ctx.fill();
+
+
+
+
 
     };
     paint(document.getElementById("canvas"));
