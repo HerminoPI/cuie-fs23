@@ -19,11 +19,11 @@
             filter: drop-shadow(0px 0px 1em cyan);
         }
         #wave {
-            stroke-width: 3px;
+            stroke-width:   3px;
             stroke-opacity: 1;
             stroke-linecap: round;
-            stroke: cyan;
-            stroke-dasharray: 100 100; /* dynamisch stylen, 100 punkte werden gezeichnet und 100 punkte werden ignoriert*/
+            stroke:         cyan;
+            stroke-dasharray: 100 100 ;
         }
         input {
             width: 100%;
@@ -48,8 +48,7 @@
     const wave  = document.querySelector('#wave');
     const range = document.querySelector('#range');
     const label = document.querySelector('label[for="range"]');
-    const sea   = document.querySelector('#sea'); //das ist ein div - braucht man um abzufragen wie gross es ist beim aktualisieren
-
+    const sea   = document.querySelector('#sea');
 
     let   waveWidth  = sea.clientWidth;
     window.addEventListener('resize', _ => waveWidth = sea.clientWidth);
@@ -61,7 +60,7 @@
         label.textContent = 'Progress: ' + Math.round(percentage) + ' %';
     };
 
-    // view bindings - schaut auf die Änderungen die in der Linie gemacht werden
+    // view bindings
 
     range.addEventListener('input', _evt => updateViews(range.value));
 
@@ -70,7 +69,7 @@
     sea.onmouseup    = _ => update = false;
     sea.onmouseleave = _ => update = false;
     sea.onmousemove  = event => {
-        if (!update) return; //guard clause - eine Schutzklausel
+        if (!update) return; // guard clause
         updateViews( event.offsetX * 100 / waveWidth );
     }
 
